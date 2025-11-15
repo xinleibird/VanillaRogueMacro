@@ -1,0 +1,32 @@
+{
+  "diagnostics.globals": [
+    "UnitExists",
+    "UnitName",
+    "CastSpellByName",
+    "SpellStopCasting",
+    "DEFAULT_CHAT_FRAME",
+    "UnitClass",
+    "GetTime",
+    "CreateFrame",
+    "UnitGUID",
+    "arg1",
+    "arg2",
+    "arg3",
+    "arg4",
+    "arg5",
+    "UnitCanAttack",
+    "event",
+    "SlashCmdList",
+    "SuperWow",
+    "SUPERWOW_STRING",
+    "UnitXP",
+    "UnitManaMax",
+    "UnitMana",
+    "UnitIsDead",
+    "sub",
+    "tremove",
+    "GetNumRaidMembers",
+    "GetNumPartyMembers",
+    "SendAddonMessage"
+  ]
+}
