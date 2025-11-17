@@ -87,7 +87,7 @@ function OnEvent()
 		-- 假设 SuperWoW 会设置一个名为 "SUPERWOW_STRING" 的全局变量。
 		if _G["SUPERWOW_STRING"] then
 			SuperWow = true
-			local _, guid = UnitGUID("player") -- 获取玩家的 GUID
+			local _, guid = UnitExists("target")
 			PLAYER_GUID = guid
 			DEFAULT_CHAT_FRAME:AddMessage(
 				RMacroConsoleColor .. "SuperWoW 模块已检测到。玩家 GUID: " .. PLAYER_GUID .. "|r"
@@ -171,7 +171,8 @@ function RMacroTargetCast()
 	end
 
 	-- 2. 获取当前目标的 GUID 并检查目标是否存在
-	local _, targetGUID = UnitGUID("target") -- 获取目标 GUID
+	local _, targetGUID = UnitExists("target")
+
 	if not targetGUID then
 		return false, nil -- 没有目标，不施法
 	end
