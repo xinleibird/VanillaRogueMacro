@@ -7,7 +7,7 @@
 -- =========================================================================
 
 -- 用于聊天消息的颜色前缀，保持与原始文件一致。
-RMacroConsoleColor = "|cFFFF8000" -- 示例颜色
+local RMacroConsoleColor = "|cFFFF8000" -- 示例颜色
 
 -- 用于指示 SuperWow 插件是否加载。
 -- 假设 SuperWoW 插件会设置一个全局变量来表明其存在，例如 _G["SUPERWOW_STRING"]。
@@ -208,8 +208,7 @@ function RMacroTargetCast()
 	return false, nil
 end
 
--- 注册 /rm 命令
-SlashCmdList["RMACRO1"] = function(arg1)
+function RMacroCommand(arg1)
 	if not arg1 or string.len(arg1) < 1 then
 		DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. "请输入参数，例如 /rmcro xxx|r")
 	elseif arg1 == "cast" then
@@ -217,4 +216,7 @@ SlashCmdList["RMACRO1"] = function(arg1)
 		DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. spellName .. "|r")
 	end
 end
+
+SlashCmdList["RMACRO"] = RMacroCommand
+-- 注册 /rmacro 命令
 SLASH_RMACRO1 = "/rmacro"
