@@ -209,12 +209,12 @@ function RMacroTargetCast()
 end
 
 -- 注册 /rm 命令
-SlashCmdList["RM1"] = function(arg1)
+SlashCmdList["RMACRO1"] = function(arg1)
 	if not arg1 or string.len(arg1) < 1 then
-		DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. "请输入参数，例如 /rm xxx|r")
+		DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. "请输入参数，例如 /rmcro xxx|r")
 	elseif arg1 == "cast" then
 		local _, spellName = RMacroTargetCast()
 		DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. spellName .. "|r")
 	end
 end
-SLASH_CAT11 = "/rm"
+SLASH_CAT11 = "/rmacro"
