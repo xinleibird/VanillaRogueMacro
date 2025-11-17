@@ -217,4 +217,4 @@ SlashCmdList["RMACRO1"] = function(arg1)
 		DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. spellName .. "|r")
 	end
 end
-SLASH_CAT11 = "/rmacro"
+SLASH_RMACRO1 = "/rmacro"
