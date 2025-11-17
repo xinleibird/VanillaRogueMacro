@@ -1,0 +1,6 @@
+## Interface: 11200
+## Title: VanillaRogueMacro
+## Notes: Rogue Macro
+## Version: 3.0.1
+
+RMacro.lua

@@ -1,3 +1,7 @@
+# macOS ignore
+.DS_Store
+**/._.DS_Store
+
 # Compiled Lua sources
 luac.out
 
