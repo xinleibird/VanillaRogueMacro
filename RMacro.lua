@@ -166,7 +166,7 @@ frame:SetScript("OnEvent", OnEvent)
 function RMacroTargetCast()
 	-- 1. 检查 SuperWoW 模块是否加载
 	if not SuperWow then
-		-- DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. "未加载 SuperWoW，MPTargetCast() 功能无效。|r")
+		DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. "未加载 SuperWoW，MPTargetCast() 功能无效。|r")
 		return false, nil
 	end
 
@@ -175,6 +175,8 @@ function RMacroTargetCast()
 	if not targetGUID then
 		return false, nil -- 没有目标，不施法
 	end
+
+	print(targetGUID)
 
 	-- 3. 查询内部存储的施法信息
 	if castStartTime[targetGUID] then
