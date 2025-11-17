@@ -214,7 +214,7 @@ function RMacroCommand(arg1)
 		DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. "请输入参数，例如 /rmcro xxx|r")
 	elseif arg1 == "cast" then
 		local _, spellName = RMacroTargetCast()
-		DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. spellName .. "|r")
+		DEFAULT_CHAT_FRAME:AddMessage(RMacroConsoleColor .. spellName[1] .. "|r")
 	end
 end
 
