@@ -79,7 +79,7 @@ function VRMSendAddonMessage()
 	end
 end
 
-function VRMINTCast(spellname)
+function VRMINTCast(enemy_name, spell_name)
 	-- 检测是否有SuperWow模组
 	if not SuperWow then
 		DEFAULT_CHAT_FRAME:AddMessage(ConsoleColor .. "未加载SuperWow，自动打断读条功能无效。|r")
@@ -91,6 +91,11 @@ function VRMINTCast(spellname)
 		return
 	end
 
+	-- 确认目标是设定的敌人
+	if enemy_name and UnitName("target") ~= enemy_name then
+		return
+	end
+
 	-- 确认目标正在读条
 	local cast, name = VRMTargetCast()
 	if not cast then
@@ -98,8 +103,8 @@ function VRMINTCast(spellname)
 	end
 
 	-- 确认读条法术是指定法术
-	if spellname then
-		if not string.find(name, spellname) then
+	if spell_name then
+		if not string.find(name, spell_name) then
 			return
 		end
 	end
@@ -198,7 +203,7 @@ end
 local function OnEvent()
 	-- 初始化
 	if event == "PLAYER_LOGIN" then
-		DEFAULT_CHAT_FRAME:AddMessage(ConsoleColor .. "VRM 加载完成！|r")
+		DEFAULT_CHAT_FRAME:AddMessage(ConsoleColor .. "VRMacro 加载完成！|r")
 
 		if SUPERWOW_STRING then
 			SuperWow = true
