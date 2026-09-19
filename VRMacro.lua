@@ -104,7 +104,7 @@ function VRMINTCast(enemy_name, spell_name)
 
 	-- 确认读条法术是指定法术
 	if spell_name then
-		if not string.find(name, spell_name) then
+		if name ~= spell_name then
 			return
 		end
 	end
@@ -194,7 +194,7 @@ function VRMCheckSpellLog(str)
 		if spellName then
 			castStartTime[objectGUID] = GetTime()
 			castName[objectGUID] = spellName
-			castDuration[objectGUID] = 20000 -- 用20秒作为长度
+			castDuration[objectGUID] = 10 -- 防御性超时，覆盖标准读条法术最长（召唤地狱火 10s）
 			return
 		end
 	end
