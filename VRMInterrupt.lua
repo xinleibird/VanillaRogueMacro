@@ -1,46 +1,34 @@
 -- VRMInterrupt.lua
 
-function VRMIntCastSpell()
-    CastSpellByName("脚踢")
-end
+function VRMINTCast()
+	if not UnitExists("target") then
+		return
+	end
 
-function VRMTargetCast()
-    if not UnitExists("target") then
-        return false, 0
-    end
+	if not (C_Spell and C_Spell.UnitCastingInfo) then
+		return
+	end
 
-    if C_Spell and C_Spell.UnitCastingInfo then
-        local name = C_Spell.UnitCastingInfo("target")
-        if name then
-            return true, name
-        end
+	local castName, notInterruptible
 
-        local cname = C_Spell.UnitChannelInfo("target")
-        if cname then
-            return true, cname
-        end
-    end
+	local name, _, _, _, _, _, _, castNotInterruptible = C_Spell.UnitCastingInfo("target")
+	if name then
+		castName, notInterruptible = name, castNotInterruptible
+	else
+		local cname, _, _, _, _, _, channelNotInterruptible = C_Spell.UnitChannelInfo("target")
+		if cname then
+			castName, notInterruptible = cname, channelNotInterruptible
+		end
+	end
 
-    return false, 0
-end
+	if not castName then
+		return
+	end
 
-function VRMINTCast(enemy_name, spell_name)
-    if not UnitExists("target") then
-        return
-    end
+	if notInterruptible then
+		DEFAULT_CHAT_FRAME:AddMessage(ConsoleColor .. "目标法术不可打断。|r")
+		return
+	end
 
-    if enemy_name and UnitName("target") ~= enemy_name then
-        return
-    end
-
-    local cast, name = VRMTargetCast()
-    if not cast then
-        return
-    end
-
-    if spell_name and not string.find(name, spell_name) then
-        return
-    end
-
-    VRMIntCastSpell()
+	CastSpellByName("脚踢")
 end
