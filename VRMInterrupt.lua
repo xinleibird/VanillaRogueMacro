@@ -19,6 +19,8 @@ local function getCastInfo()
 end
 
 function VRMINTCast()
+  local ConsoleColor = "|cFF9264cdVRM: |r |cFFc3a7e2"
+
   if not UnitExists("target") then
     return
   end
@@ -29,7 +31,7 @@ function VRMINTCast()
   end
 
   if notInterruptible then
-    DEFAULT_CHAT_FRAME:AddMessage("|cFF9264cdVRM: |r |cFFc3a7e2目标法术不可打断。|r")
+    DEFAULT_CHAT_FRAME:AddMessage(ConsoleColor .. "目标法术不可打断。|r")
     return
   end
 
@@ -37,8 +39,10 @@ function VRMINTCast()
 end
 
 function VRMINTCastSpell(enemy_name, spell_name)
+  local ConsoleColor = "|cFF9264cdVRM: |r |cFFc3a7e2"
+
   if not enemy_name or not spell_name then
-    DEFAULT_CHAT_FRAME:AddMessage("|cFF9264cdVRM: |r |cFFc3a7e2VRMINTCastSpell 缺少参数：对手名 + 法术名。|r")
+    DEFAULT_CHAT_FRAME:AddMessage(ConsoleColor .. "VRMINTCastSpell 缺少参数：对手名 + 法术名。|r")
     return
   end
 
