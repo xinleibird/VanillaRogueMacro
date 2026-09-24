@@ -26,7 +26,7 @@ function VRMINTCast()
   end
 
   if notInterruptible then
-    DEFAULT_CHAT_FRAME:AddMessage(ConsoleColor .. "目标法术不可打断。|r")
+    DEFAULT_CHAT_FRAME:AddMessage("|cFF9264cdVRM: |r |cFFc3a7e2目标法术不可打断。|r")
     return
   end
 
